@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidadorEdadTest {
     @Test
-    void edadNegativa() {
+    void edadNegativaNoEsValida() {
         boolean resultado = ValidadorEdad.esValida(-1);
         assertFalse(resultado);
     }
