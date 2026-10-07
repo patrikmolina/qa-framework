@@ -7,31 +7,31 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ValidadorEdadTest {
     @Test
-    void edadNegativa(){
+    void edadNegativa() {
         boolean resultado = ValidadorEdad.esValida(-1);
         assertFalse(resultado);
     }
 
     @Test
-    void edadLimiteMenor(){
+    void edad17NoEsValida() {
         boolean resultado = ValidadorEdad.esValida(17);
         assertFalse(resultado);
     }
 
     @Test
-    void edadLimiteayor(){
+    void edad66NoEsValida() {
         boolean resultado = ValidadorEdad.esValida(66);
         assertFalse(resultado);
     }
 
     @Test
-    void edadMenor(){
+    void edad18EsValida() {
         boolean resultado = ValidadorEdad.esValida(18);
         assertTrue(resultado);
     }
 
     @Test
-    void edadMayor(){
+    void edad65EsValida() {
         boolean resultado = ValidadorEdad.esValida(65);
         assertTrue(resultado);
     }
