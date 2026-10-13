@@ -8,7 +8,7 @@ import static org.hamcrest.Matchers.greaterThan;
 public class BookingTest {
 
     @Test
-    void listBookingReturnStatus200() {
+    void listBookingReturnStatus200AndVerifySizeGreaterThan0() {
         given()
                 .baseUri("https://restful-booker.herokuapp.com")
         .when()
