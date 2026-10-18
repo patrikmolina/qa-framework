@@ -21,7 +21,7 @@ public class BookingTest {
     }
 
     @Test
-    void getBookingByIdReturnsBookingData() {
+    void getBookingByIdReturnsBookingData(){
 
         int bookingId =
                 given()
@@ -35,6 +35,7 @@ public class BookingTest {
         given()
                 .baseUri("https://restful-booker.herokuapp.com")
                 .pathParam("id", bookingId)
+                .accept("application/json")
         .when()
                 .get("/booking/{id}")
         .then()
