@@ -3,8 +3,7 @@ package io.github.patrikmolina.api;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
-import static org.hamcrest.Matchers.greaterThan;
-import static org.hamcrest.Matchers.notNullValue;
+import static org.hamcrest.Matchers.*;
 
 
 public class BookingTest {
@@ -42,5 +41,19 @@ public class BookingTest {
                 .statusCode(200)
                 .body("firstname", notNullValue())
                 .body("bookingdates.checkin", notNullValue());
+    }
+
+    @Test
+    void filterBookingByUnknownNameReturnsEmptyList(){
+        given()
+                .baseUri("https://restful-booker.herokuapp.com")
+                .accept("application/json")
+                .queryParam("firstname", "ricardoruben")
+        .when()
+                .get("/booking")
+        .then()
+                .statusCode(200)
+                .body("size()", equalTo(0));
+
     }
 }
